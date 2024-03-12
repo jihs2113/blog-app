@@ -1,3 +1,13 @@
+import Footer from 'components/Footer';
+import Header from 'components/Header';
+import SignupForm from 'components/SingupForm';
+
 export default function SignupPage() {
-    return <h1>SignupPage</h1>;
+    return (
+        <>
+            <Header />
+            <SignupForm />
+            <Footer />
+        </>
+    );
 }

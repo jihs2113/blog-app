@@ -27,6 +27,7 @@ export default function PostDetail() {
             toast.success('게시글을 삭제했습니다.');
             navigate('/');
         }
+
     };
 
     useEffect(() => {
@@ -51,6 +52,7 @@ export default function PostDetail() {
                             </div>
                             <div className="post__edit">
                                 <Link to={`/posts/edit/${post?.id}`}>수정</Link>
+
                             </div>
                         </div>
                         <div className="post__text post__text--pre-wrap">{post?.content}</div>

@@ -30,6 +30,7 @@ export default function PostDetail() {
             toast.success('게시글을 삭제했습니다.');
             navigate('/');
         }
+
     };
 
     useEffect(() => {
@@ -60,6 +61,7 @@ export default function PostDetail() {
                                         </div>
                                     </>
                                 )}
+
                             </div>
                             <div className="post__text post__text--pre-wrap">{post?.content}</div>
                         </div>

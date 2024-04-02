@@ -37,6 +37,14 @@ export const CATEGORIES: CategoryType[] = ['Frontend', 'Backend', 'Web', 'Native
 
 export default function PostList({ hasNavigation = true, defaultTab = 'all' }: PostListProps) {
     const [activeTab, setActiveTab] = useState<TabType | CategoryType>(defaultTab);
+export interface PostProps {
+    id?: string;
+    title: string;
+    email: string;
+    summary: string;
+    content: string;
+    createdAt: string;
+}
     const [posts, setPosts] = useState<PostProps[]>([]);
     const { user } = useContext(AuthContext);
 
@@ -57,6 +65,7 @@ export default function PostList({ hasNavigation = true, defaultTab = 'all' }: P
             postsQuery = query(postsRef, where('category', '==', activeTab), orderBy('createdAt', 'asc'));
         }
         const datas = await getDocs(postsQuery);
+
         datas?.forEach((doc) => {
             const dataObj = { ...doc.data(), id: doc.id };
             setPosts((prev) => [...prev, dataObj as PostProps]);
